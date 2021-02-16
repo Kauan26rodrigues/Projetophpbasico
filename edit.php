@@ -1,5 +1,9 @@
 <?php
-include'connect.php';
+
+include 'connect.php';
+include 'chechlogin.php';
+
+
 if(isset($_POST['sub'])){
     $t=$_POST['text'];
     $u=$_POST['user'];

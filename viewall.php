@@ -1,5 +1,6 @@
 <?php
 include 'connect.php';
+include 'checklogin.php';
 ?>
 <table border='1'>
     <tr>

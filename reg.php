@@ -44,13 +44,14 @@ if(isset($_POST['sub'])){
                 <tr>
                     <td>
                         city
+                        <select name="city">       
                             <option value="">-select-</option>
                         <?php
-                            $sqlCity= mysqli_query($con, "select * from city"); 
+                            $sqlCity= mysqli_query($con, "select * from city");
+
                             while($item = mysqli_fetch_assoc($sqlCity))
                             {
-                                $idCity = $item['idCity'];
-                                $nomeItem = ($item['nameCity']);
+                                $nomeItem = utf8_encode($item['nameCity']);
                                 echo "
                                    <option value= $nomeItem>$nomeItem</option>
                                 ";  

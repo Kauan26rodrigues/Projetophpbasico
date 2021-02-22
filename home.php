@@ -1,6 +1,6 @@
 <?php
 include 'connect.php';
-include 'checklogn.php';
+include 'checklogin.php';
 
 $s="select*from reg where id='$_SESSION[id]'";
 $qu= mysqli_query($con, $s);

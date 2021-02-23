@@ -3,7 +3,7 @@ include 'connect.php';
 if(isset($_POST['sub'])){
     $nameCity=$_POST['nameCity'];
    
-    $i="insert into city(nameCity) values ('Colatina');";
+    $sqlInsertCity="insert into city (nameCity) value ('$nameCity');";
     mysqli_query($con, $sqlInsertCity);
 }
 ?>
@@ -19,7 +19,7 @@ if(isset($_POST['sub'])){
             <table>
                 <tr>
                     <td>
-                        Name cidade
+                        Nome da cidade
                         <input type="text" name="text">
                     </td>
                 </tr>
@@ -32,7 +32,7 @@ if(isset($_POST['sub'])){
                 </tr>
                 <tr>
                     <td>
-                        <a href="login.php">login</a>
+                        <a href="home.php">login</a>
                     </td>
                 </tr>
             </table>
@@ -42,24 +42,26 @@ if(isset($_POST['sub'])){
         <th>
             Name
         </th>
+        <th>
+            Id
+        </th>
     </tr>
   <?php
-   $sq="select * from reg";
+   $sq="select * from  city";
    $qu=mysqli_query($con,$sq);
    while($f=  mysqli_fetch_assoc($qu)){
-    ?>
+       ?>
     <tr>
         <td>
-            <?php echo $f['name']?>
+            <?php echo $f['nameCity']?>
         </td>
         <td>
-            <?php echo $f['username']?>
+            <a href="edit_city.php?idCity=<?php echo $f['idCity']?>">Edit</a>
         </td>
     </tr>
-  <?php
-} 
-?>
-</table>
-
+     <?php
+    } 
+       ?>
+       </table>
     </body>
 </html>

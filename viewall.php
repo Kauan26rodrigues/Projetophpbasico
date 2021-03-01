@@ -2,6 +2,9 @@
 include 'connect.php';
 include 'checklogin.php';
 ?>
+
+<a href="home.php">Back Home</a>
+
 <table border='1'>
     <tr>
         <th>

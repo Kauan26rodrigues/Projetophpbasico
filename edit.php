@@ -1,8 +1,17 @@
 <?php
+<<<<<<< Updated upstream
 
 include 'connect.php';
 include 'chechlogin.php';
 
+=======
+include'connect.php';
+
+if(!isset($_SESSION['id'])){
+    
+}
+    
+>>>>>>> Stashed changes
 
 if(isset($_POST['sub'])){
     $t=$_POST['text'];
@@ -50,8 +59,8 @@ if(isset($_POST['sub'])){
                         city
                         <select name="city">
                             <option value="">-select-</option>
-                            <option value="knp"<?php if($f['city']=='knp'){ echo "selected='selected'";}?>>kanpur</option>
-                            <option value="lko"<?php if($f['city']=='lko'){ echo "selected='selected'";}?>>lucknow</option>
+                            <option value="knp"<?php if($f['city']=='knp'){ echo "selected='selected'";}?>>Hortolandia</option>
+                            <option value="lko"<?php if($f['city']=='lko'){ echo "selected='selected'";}?>>Campinas</option>
                     </td>
                 </tr>
                 <tr>

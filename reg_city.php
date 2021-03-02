@@ -1,9 +1,13 @@
 <?php
+
+
 include 'connect.php';
+include 'checkLogin.php';
+
 if(isset($_POST['sub'])){
     $nameCity=$_POST['nameCity'];
-   
-    $sqlInsertCity="insert into city (nameCity) value ('$nameCity');";
+
+    $sqlInsertCity="insert into city (nameCity) values ('$nameCity');";
     mysqli_query($con, $sqlInsertCity);
 }
 ?>
@@ -19,49 +23,58 @@ if(isset($_POST['sub'])){
             <table>
                 <tr>
                     <td>
-                        Nome da cidade
-                        <input type="text" name="text">
+                        Name da cidade: 
+                        <input type="text" name="nameCity">
                     </td>
                 </tr>
 
                 <tr>
                     <td>
                         <input type="submit" value="submit" name="sub">
-                               
                     </td>
                 </tr>
+
+
                 <tr>
                     <td>
-                        <a href="home.php">login</a>
+                        <a href="login.php"> Login</a>
                     </td>
                 </tr>
             </table>
-         
-    <table border='1'>
-    <tr>
-        <th>
-            Name
-        </th>
-        <th>
-            Id
-        </th>
-    </tr>
-  <?php
-   $sq="select * from  city";
-   $qu=mysqli_query($con,$sq);
-   while($f=  mysqli_fetch_assoc($qu)){
-       ?>
-    <tr>
-        <td>
-            <?php echo $f['nameCity']?>
-        </td>
-        <td>
-            <a href="edit_city.php?idCity=<?php echo $f['idCity']?>">Edit</a>
-        </td>
-    </tr>
-     <?php
-    } 
-       ?>
-       </table>
+
+            <table border='1'>
+                    <tr>
+                        <th>
+                            Nome da cidade
+                        </th>
+                        <th>  
+                        </th>
+
+                        <th>  
+                        </th>
+
+
+                    </tr>
+
+                <?php
+                $sq="select * from city";
+                $qu=mysqli_query($con,$sq);
+                while($f=  mysqli_fetch_assoc($qu)){
+                    ?>
+                    <tr>
+                        <td>
+                            <?php echo $f['nameCity']?>
+                        </td>
+                        <td>
+                            <a href="edit_city.php?idCity=<?php echo $f['idCity']?>&nameCity=<?php echo $f['nameCity']?>">Edit</a>
+                        </td>
+                        <td>
+                            <a href="delete_city.php?idCity=<?php echo $f['idCity']?>&nameCity=<?php echo $f['nameCity']?>">Delete</a>
+                        </td>
+                    </tr>
+                <?php
+                }
+                ?>
+            </table>
     </body>
 </html>

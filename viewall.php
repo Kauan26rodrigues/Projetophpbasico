@@ -1,9 +1,9 @@
 <?php
-include 'connect.php';
-include 'checklogin.php';
+    include 'connect.php';
+    include 'checkLogin.php';
 ?>
 
-<a href="home.php">Back Home</a>
+<a href="home.php">Home</a>
 
 <table border='1'>
     <tr>

@@ -1,11 +1,10 @@
 <?php
-include 'connect.php';
-include 'checklogin.php';
+    include 'connect.php';
+    include 'checkLogin.php';
 
-$s="select*from reg where id='$_SESSION[id]'";
-$qu= mysqli_query($con, $s);
-$f=mysqli_fetch_assoc($qu);
-    
+    $s="select * from reg where id='$_SESSION[id]'";
+    $qu= mysqli_query($con, $s);
+    $f=mysqli_fetch_assoc($qu);
 
 ?>
 <html>
@@ -55,5 +54,6 @@ echo $f['image'];?>" width="100px" height="100px">
 <a href="delete.php">Delete</a>
 <a href="logout.php">Logout</a>
 <a href="viewall.php">View All Users</a>
+<a href="reg_city.php">Reg City</a>
     </body>
 </html>

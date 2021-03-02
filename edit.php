@@ -1,17 +1,6 @@
 <?php
-<<<<<<< Updated upstream
-
 include 'connect.php';
-include 'chechlogin.php';
-
-=======
-include'connect.php';
-
-if(!isset($_SESSION['id'])){
-    
-}
-    
->>>>>>> Stashed changes
+include 'checkLogin.php';
 
 if(isset($_POST['sub'])){
     $t=$_POST['text'];
@@ -30,7 +19,7 @@ if(isset($_POST['sub'])){
     mysqli_query($con, $i);
     header('location:home.php');
 }
-     $s="select*from reg where id='$_SESSION[id]'";
+    $s="select*from reg where id='$_SESSION[id]'";
     $qu= mysqli_query($con, $s);
     $f=mysqli_fetch_assoc($qu);
     ?> 
@@ -59,8 +48,23 @@ if(isset($_POST['sub'])){
                         city
                         <select name="city">
                             <option value="">-select-</option>
-                            <option value="knp"<?php if($f['city']=='knp'){ echo "selected='selected'";}?>>Hortolandia</option>
-                            <option value="lko"<?php if($f['city']=='lko'){ echo "selected='selected'";}?>>Campinas</option>
+                        
+                            <?php
+                            $sqlCity= mysqli_query($con, "select * from city");
+                                                        
+                            while($item = mysqli_fetch_assoc($sqlCity))
+                            {
+                                $nomeItem = utf8_encode($item['nameCity']);
+              
+                                if($f['city'] == $nomeItem){
+                                    echo "                                
+                                        <option value=$nomeItem selected='selected'>$nomeItem</option>                                
+                                    ";
+                                }else{
+                                    echo " <option value=$nomeItem>$nomeItem</option>";
+                                }
+                            }
+                            ?>
                     </td>
                 </tr>
                 <tr>
@@ -90,12 +94,12 @@ if(isset($_POST['sub'])){
                         <img src="<?php echo $f['image']?>" width="100px" height="100px">
                         <input type="file" name="f1">
                         <input type="hidden" name="img1" value="<?php echo $f['image']?>">
+                        
                     </td>
                 </tr>
                 <tr>
                     <td>
                         <input type="submit" value="submit" name="sub">
-                        <a href="home.php">Home</a>
                                
                     </td>
                 </tr>

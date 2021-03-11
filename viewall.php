@@ -1,6 +1,12 @@
 <?php
-    include 'connect.php';
-    include 'checkLogin.php';
+include 'connect.php';
+include 'check.php';
+
+    $s="select * from reg where id='$_SESSION[id]'";
+    $qu= mysqli_query($con, $s);
+    $f=mysqli_fetch_assoc($qu);
+
+
 ?>
 
 <a href="home.php">Home</a>

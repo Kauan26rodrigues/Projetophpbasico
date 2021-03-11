@@ -1,12 +1,17 @@
 <?php
-    include 'connect.php';
-    include 'checkLogin.php';
+include 'connect.php';
+include 'check.php';
+
 
     $s="select * from reg where id='$_SESSION[id]'";
     $qu= mysqli_query($con, $s);
     $f=mysqli_fetch_assoc($qu);
+    
+
 
 ?>
+
+
 <html>
     <head>
         
@@ -22,7 +27,7 @@
             </td>
     </tr>
     <tr>
-    <td> Username</td>
+    <td> Username </td>
     
     <td>
             
@@ -53,7 +58,7 @@ echo $f['image'];?>" width="100px" height="100px">
 <a href="edit.php">Edit</a>
 <a href="delete.php">Delete</a>
 <a href="logout.php">Logout</a>
+<a href="reg_city.php">Cadastro de cidades</a>
 <a href="viewall.php">View All Users</a>
-<a href="reg_city.php">Reg City</a>
-    </body>
+</body>
 </html>

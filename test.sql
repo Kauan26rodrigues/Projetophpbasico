@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.2
--- https://www.phpmyadmin.net/
+-- version 4.5.1
+-- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 01-Mar-2021 às 16:26
--- Versão do servidor: 10.4.13-MariaDB
--- versão do PHP: 7.4.8
+-- Generation Time: 16-Fev-2021 às 15:24
+-- Versão do servidor: 10.1.13-MariaDB
+-- PHP Version: 7.0.8
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -18,7 +17,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Banco de dados: `test`
+-- Database: `test`
 --
 
 -- --------------------------------------------------------
@@ -28,8 +27,8 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `city` (
-  `idCity` int(11) NOT NULL,
-  `nameCity` varchar(300) NOT NULL
+  `Id_city` int(11) NOT NULL,
+  `name_city` varchar(300) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -65,38 +64,35 @@ INSERT INTO `reg` (`name`, `username`, `password`, `city`, `image`, `gender`, `i
 ('Alciomar Hollanda', 'alciomar', '123', 'knp', 'image/github-octocat.png', 'male', 3);
 
 --
--- Índices para tabelas despejadas
+-- Indexes for dumped tables
 --
 
 --
--- Índices para tabela `city`
+-- Indexes for table `city`
 --
 ALTER TABLE `city`
   ADD PRIMARY KEY (`idCity`);
 
 --
--- Índices para tabela `reg`
+-- Indexes for table `reg`
 --
 ALTER TABLE `reg`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT de tabelas despejadas
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT de tabela `city`
+-- AUTO_INCREMENT for table `city`
 --
 ALTER TABLE `city`
   MODIFY `idCity` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
 --
--- AUTO_INCREMENT de tabela `reg`
+-- AUTO_INCREMENT for table `reg`
 --
 ALTER TABLE `reg`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-COMMIT;
-
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

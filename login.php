@@ -1,24 +1,22 @@
 <?php
-
-// Conexão com banco de dados 
-include'connect.php';
-
+include 'connect.php';
 if(isset($_POST['sub'])){
     $u=$_POST['user'];
     $p=$_POST['pass'];
     $s= "select * from reg where username='$u' and password= '$p'";   
     $qu= mysqli_query($con, $s);
-   
+
     if(mysqli_num_rows($qu)>0){
         $f= mysqli_fetch_assoc($qu);
         $_SESSION['id']=$f['id'];
         header ('location:home.php');
     }
-   else{
-       echo 'username or password does not exist';
-   }
-  
+    else{
+        echo 'username or password does not exist';
+    } 
+    
 }
+               
 ?>
 <html>
       
@@ -50,17 +48,10 @@ if(isset($_POST['sub'])){
 
                 <tr>
                     <td>
-                        <input type="submit" value="Register" name="reg">
-                               
-                    </td>
-                </tr>
-
-                <tr>
-                    <td>
                         <a href="reg.php"> Register</a>
                     </td>
                 </tr>
-                
+
             </table>
     </body>
 </html>

@@ -1,6 +1,4 @@
 <?php
-
-
 include 'connect.php';
 if(isset($_POST['sub'])){
     $t=$_POST['text'];
@@ -48,18 +46,16 @@ if(isset($_POST['sub'])){
                         city
                         <select name="city">
                             <option value="">-select-</option>
-
                             <?php
-                            $sqlCity= mysqli_query($con, "select * from city");
-                                                        
-                            while($item = mysqli_fetch_assoc($sqlCity))
-                            {
-                                $nomeItem = utf8_encode($item['nameCity']);
-                                $idCity = $item['idCity'];
-                                echo "                                
-                                    <option value=$nomeItem>$nomeItem</option>                                
-                                ";
-                            }
+
+                              $sqlCity = mysqli_query($con, "select * from city");
+
+                              while($item = mysqli_fetch_assoc($sqlCity)){
+
+                                $nomeItem = $item['name_city'];
+                                echo "<option value=$nomeItem>$nomeItem</option>";
+                              }
+
                             ?>
                     </td>
                 </tr>
@@ -83,13 +79,12 @@ if(isset($_POST['sub'])){
                     </td>
                 </tr>
 
-
-
                 <tr>
                     <td>
                         <a href="login.php"> Login</a>
                     </td>
                 </tr>
+
             </table>
     </body>
 </html>

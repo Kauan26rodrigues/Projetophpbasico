@@ -60,7 +60,7 @@ if(isset($_POST['sub'])){
 
                                 $nomeItem = $item['name_city'];
 
-                                if($f['city']) == $nomeItem){
+                                if($f['city'])== $nomeItem){
 
                                     echo"<option value=$nomeItem selected='selected'>$nomeItem</option>";
              
